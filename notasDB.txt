@@ -1,0 +1,41 @@
+show dbs                              #muestra las bases de datos
+use DB_Name                           #Crea y/o seleciona una db
+
+
+db                                    #muestra la base en la que estas
+  .createUser({                       #crea un usuario
+    user: 'Name',
+    pwd: 'password'
+    roles: ['readWrite','dbAdmin']
+  })
+  .createCollection('NAME')           #crea una tabla o coleccion nueva "NAME"
+  .NAME.insert({                      #Crea y/o inserta datos en una tabla
+    DATOS                             #o coleccion nueva llamada NAME
+  })
+  .NAME.update({Dato/s a actualizar}{ #actualiza un dato para modificar
+    Informacion Actualizada           #o agregar su informacion
+    $set:   {Datos}                   #crea un nuevo datos
+    $inc:   {ValorNum}                #incrementa un valor numerico de un dato
+    $unset: {DATOS}                   #borra un dato
+  }{
+    {upsert: true}                    #si no encuentra el dato o la info la crea
+  )
+  NAME.remove({Dato}                  #Remueve el dato de la coleccion
+
+  )
+
+  .NAME.find({                        #busca DATOS en una coleccion
+    $or: [{atributos}]
+    num: {$gt, $lt}                   #gt mayor que, lt menores que
+    $regex                            #buscar por caracteres
+    $ort {dato: 1 o -1}               #1 ordenar de menor a mayor, -1 al revez
+    DATOS
+  })
+    .pretty()                         #Muestra mejor organizados los datos
+    .count()                          #conteo
+    .limit()                          #muestra un limite de datos
+
+  .dropDatabase                       #elimina la db
+
+
+  https://www.youtube.com/channel/UCX9NJ471o7Wie1DQe94RVIg
